@@ -11,4 +11,5 @@ Display the links from your twitter feed in a sexy way
   export TWEETLINKS_TWITTER_CONSUMER_SECRET=a secret
   export TWEETLINKS_SESSION_secret=blahblahblah
   rspec spec
-  rails s puma
+  rails s puma -p 3006
+  open http://localhost:3006/specs

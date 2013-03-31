@@ -7,6 +7,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pg'
 gem 'puma'
+gem 'quiet_assets'
 gem 'rails', '3.2.13'
 
 group :assets do

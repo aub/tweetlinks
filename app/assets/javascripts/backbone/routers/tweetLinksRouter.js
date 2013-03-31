@@ -4,8 +4,12 @@ TweetLinks.Routers.TweetLinksRouter = Backbone.Router.extend({
     '': 'home'
   },
 
+  updateDom: function(elem) {
+    $('#content-hook').html(elem);
+  },
+
   home: function() {
-    console.log("BANGIN!");
+    this.updateDom(new TweetLinks.Views.HomeView().render().$el);
   }
 
 });

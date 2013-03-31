@@ -1,5 +1,7 @@
 Tweetlinks::Application.routes.draw do
 
+  match '/auth/twitter/callback', to: 'sessions#create'
+
   mount JasmineRails::Engine => '/specs' unless Rails.env.production?
 
   namespace :api do
