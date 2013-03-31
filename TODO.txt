@@ -1,0 +1,13 @@
+
+* Basic setup of scaffolding with bootstrap and backbone
+* Users can login with twitter oauth
+* Create a worker that hits twitter for a given user and pulls back their recent feed
+* Parse the feed for links
+* Write a PhantomJS script that will take a URL and create an image from it
+* Write a function that given a link will execute the PhantomJS script
+* Upload phantomJS images to cloudinary.
+* Store the list of images in the user's account, along with data about where it came from and the tweet content
+* Back on the client, create a masonry display that shows all of the images
+* Add data about the source of the link to the display
+* Make interactios where clicking will take you to the tweeter, tweet, site, etc.
+* Add a modal dialog for seeing a bigger version of the image
