@@ -1,4 +1,9 @@
-tweetlinks
-==========
+= tweetlinks
 
 Display the links from your twitter feed in a sexy way
+
+== Setup
+
+  createdb tweetlinks_development
+  createdb tweetlinks_test
+  rake db:schema:load db:migrate
