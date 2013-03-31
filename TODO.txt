@@ -1,6 +1,8 @@
 
 √ Basic setup of scaffolding with bootstrap and backbone
+√ Create users
 
+* Create a splash screen
 * Users can login with twitter oauth
 * Create a worker that hits twitter for a given user and pulls back their recent feed
 * Parse the feed for links

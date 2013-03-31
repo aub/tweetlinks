@@ -6,7 +6,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'pg'
 gem 'puma'
-gem 'rails'
+gem 'rails', '3.2.13'
 
 group :assets do
   gem 'jquery-rails'
