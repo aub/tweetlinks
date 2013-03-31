@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'haml'
 gem 'i18n-js'
 gem 'jbuilder'
 gem 'omniauth'
