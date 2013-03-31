@@ -4,9 +4,16 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.Tweetlinks = {
+window.TweetLinks = {
   Models: {},
   Collections: {},
   Routers: {},
   Views: {}
 };
+
+$(function() {
+  window.router = new TweetLinks.Routers.TweetLinksRouter();
+  Backbone.history.start({ pushState: true });
+});
+
+
