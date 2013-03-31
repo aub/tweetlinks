@@ -7,3 +7,8 @@ Display the links from your twitter feed in a sexy way
   createdb tweetlinks_development
   createdb tweetlinks_test
   rake db:schema:load db:migrate
+  rspec spec
+  rails s puma
+  export TWITTER_CONSUMER_KEY=a key
+  export TWITTER_CONSUMER_SECRET=a secret
+  export SESSION_TOKEN=blahblahblah

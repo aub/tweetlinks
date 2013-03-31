@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/tweetlinks
+//= require i18n
+//= require i18n/translations
 //= require_tree .
