@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
     user ||= create do |u|
       u.twitter_uid = hash.uid
       u.name = hash.info.name
+      u.access_secret = hash.credentials.secret
+      u.access_token = hash.credentials.token
     end
   end
 end

@@ -1,9 +1,11 @@
 
 √ Basic setup of scaffolding with bootstrap and backbone
 √ Create users
+√ Create a splash screen
+√ Users can login with twitter oauth
+√ Store access token and secret with the users
 
-* Create a splash screen
-* Users can login with twitter oauth
+* Send the current user to the client
 * Create a worker that hits twitter for a given user and pulls back their recent feed
 * Parse the feed for links
 * Write a PhantomJS script that will take a URL and create an image from it

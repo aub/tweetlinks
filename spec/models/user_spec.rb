@@ -7,6 +7,10 @@ describe User do
         uid: '123',
         info: {
           name: 'Aubrey Holland'
+        },
+        credentials: {
+          token: 'blahblahblah',
+          secret: 'ackackack'
         }
       })
     end
@@ -23,6 +27,14 @@ describe User do
 
       it 'should set the name' do
         user.name.should == 'Aubrey Holland' 
+      end
+
+      it 'should set the access_token' do
+        user.access_token.should == 'blahblahblah'
+      end
+
+      it 'should set the access secret' do
+        user.access_secret.should == 'ackackack'
       end
     end
 

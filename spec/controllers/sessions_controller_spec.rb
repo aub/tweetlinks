@@ -6,6 +6,10 @@ describe SessionsController do
       uid: '123',
       info: {
         name: 'Aubrey Holland'
+      },
+      credentials: {
+        token: 'abc',
+        secret: '123'
       }
     })
   end
@@ -28,6 +32,5 @@ describe SessionsController do
       u.twitter_uid.should == '123'
       u.name.should == 'Aubrey Holland'
     end
-
   end
 end
