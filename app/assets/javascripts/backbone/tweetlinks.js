@@ -8,7 +8,8 @@ window.TweetLinks = {
   Models: {},
   Collections: {},
   Routers: {},
-  Views: {}
+  Views: {},
+  currentUser: null
 };
 
 $(function() {

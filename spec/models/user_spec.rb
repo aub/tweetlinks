@@ -57,4 +57,13 @@ describe User do
       end
     end
   end
+
+  describe 'to_builder' do
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'should have a json representation' do
+      doc = user.to_builder.target!
+      MultiJson.decode(doc).should == { 'name' => user.name }
+    end
+  end
 end

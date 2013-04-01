@@ -195,6 +195,7 @@ GEM
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
     websocket (1.0.7)
+    yajl-ruby (1.1.0)
 
 PLATFORMS
   ruby
@@ -210,6 +211,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   masonry-rails
+  multi_json
   omniauth
   omniauth-twitter
   pg
@@ -223,3 +225,4 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier
   webmock
+  yajl-ruby

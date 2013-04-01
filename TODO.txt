@@ -4,9 +4,9 @@
 √ Create a splash screen
 √ Users can login with twitter oauth
 √ Store access token and secret with the users
+√ Send the current user to the client
 
-* Send the current user to the client
-* Create a worker that hits twitter for a given user and pulls back their recent feed
+* Create a rake task that hits twitter for all of the users and pulls back their recent feed
 * Parse the feed for links
 * Write a PhantomJS script that will take a URL and create an image from it
 * Write a function that given a link will execute the PhantomJS script
