@@ -20,4 +20,10 @@ describe ApplicationController do
   it 'should be ok with nothing in the session' do
     controller.current_user.should be_nil
   end
+
+  it 'should return nil when the user is missing' do
+    session[:user_id] = user.id
+    user.destroy
+    controller.current_user.should be_nil
+  end
 end

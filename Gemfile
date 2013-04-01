@@ -10,6 +10,7 @@ gem 'pg'
 gem 'puma'
 gem 'quiet_assets'
 gem 'rails', '3.2.13'
+gem 'twitter'
 gem 'yajl-ruby'
 
 group :assets do

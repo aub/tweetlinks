@@ -11,7 +11,11 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = if session[:user_id]
-      User.find(session[:user_id])
+      begin
+        User.find(session[:user_id])
+      rescue ActiveRecord::RecordNotFound
+        nil
+      end
     else
       nil 
     end
