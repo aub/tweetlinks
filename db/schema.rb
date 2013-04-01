@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130331210601) do
+ActiveRecord::Schema.define(:version => 20130401002637) do
 
   create_table "users", :force => true do |t|
     t.string   "auth_token"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130331210601) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "twitter_uid"
+    t.string   "name"
   end
 
 end

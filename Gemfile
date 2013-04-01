@@ -24,3 +24,11 @@ group :development, :test do
   gem 'debugger'
   gem 'jasmine-rails'
 end
+
+group :test do
+  gem 'factory_girl'
+  gem 'faker'
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'webmock'
+end
