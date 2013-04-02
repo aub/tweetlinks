@@ -40,8 +40,17 @@ body {
   border-radius: 10px;
 }
 
-.overlay p {
-  font-size: 20px;
-  z-index: 11;
+.overlay .inner {
+  padding: 15px;
+}
+
+.overlay h4 {
   color: white;
+  font-size: 26px;
+}
+
+.overlay p {
+  color: white;
+  font-size: 18px;
+  line-height: 26px;
 }
