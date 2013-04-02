@@ -1,6 +1,6 @@
 class TweetPuller
 
-  MAX_TWEETS = 10
+  MAX_TWEETS = 25
 
   def initialize(user)
     @user = user
