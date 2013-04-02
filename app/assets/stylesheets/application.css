@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  background-color: #333 !important;
+}
+
+#tweet-container .item {
+  width: 300px;
+  margin: 10px;
+  float: left;
+  border: 2px solid #444;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
