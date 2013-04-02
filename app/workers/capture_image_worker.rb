@@ -5,6 +5,9 @@ class CaptureImageWorker
 
   def perform(tweet_id)
     tweet = Tweet.find(tweet_id)
+
+    return if tweet.cloudinary_id.present?
+
     filename = File.join(
       Rails.root,
       'tmp',
