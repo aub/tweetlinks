@@ -60,6 +60,13 @@ describe User do
       it 'should be the created user' do
         user.id.should == created_user.id
       end
+
+      it 'should schedule a tweet worker' do
+        UpdateTweetsWorker.jobs.should be_present
+        UpdateTweetsWorker.jobs.find do |j|
+          j['args'] == [created_user.id]
+        end.should be
+      end
     end
   end
 

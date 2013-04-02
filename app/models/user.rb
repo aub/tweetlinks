@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   has_many :tweets
 
+  after_create :schedule_tweet_worker
+
   def to_builder
     Jbuilder.new do |user|
       user.name name
@@ -23,5 +25,11 @@ class User < ActiveRecord::Base
       u.access_secret = hash.credentials.secret
       u.access_token = hash.credentials.token
     end
+  end
+
+  private
+
+  def schedule_tweet_worker
+    UpdateTweetsWorker.perform_async(id)
   end
 end

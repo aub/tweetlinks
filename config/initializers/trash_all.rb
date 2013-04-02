@@ -13,4 +13,6 @@ def trash_all!
   end
 
   Rails.cache.clear
+
+  APP_REDIS.flushdb
 end

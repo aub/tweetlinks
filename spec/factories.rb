@@ -9,6 +9,7 @@ FactoryGirl.define do
     tweet_content { Faker::Lorem.words(10).join(' ') }
     tweeted_at { Time.now }
     url { Faker::Internet.url }
+    sequence(:cloudinary_id) { |n| n.to_s }
   end
 
   factory :twitter_user do

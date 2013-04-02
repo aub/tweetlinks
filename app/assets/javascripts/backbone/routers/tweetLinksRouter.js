@@ -9,7 +9,18 @@ TweetLinks.Routers.TweetLinksRouter = Backbone.Router.extend({
   },
 
   home: function() {
-    this.updateDom(new TweetLinks.Views.HomeView().render().$el);
+    if (TweetLinks.currentUser) {
+      new TweetLinks.Collections.TweetCollection().fetch({
+        success: function(a, b) {
+          console.log("YAY!");
+        },
+        error: function(a, b) {
+          console.log("MEGAFAIL!");
+        }
+      });
+    } else {
+      this.updateDom(new TweetLinks.Views.HomeView().render().$el);
+    }
   }
 
 });

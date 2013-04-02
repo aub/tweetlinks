@@ -23,7 +23,7 @@ describe Api::V1::TweetsController do
 
       it 'should return an empty array' do
         get :index
-        response.body.should == '[]'
+        response.body.should == { tweets: [] }.to_json
       end
 
       context 'with some tweets' do
@@ -37,7 +37,21 @@ describe Api::V1::TweetsController do
 
         it 'should return the tweets as json' do
           get :index
-          response.body.should == tweets.to_json
+          response.body.should == { tweets: tweets }.to_json
+        end
+      end
+
+      context 'with some tweets sans cloudinary id' do
+        let!(:tweets) do
+          [
+            FactoryGirl.create(:tweet, user: user, cloudinary_id: nil),
+            FactoryGirl.create(:tweet, user: user, cloudinary_id: nil)
+          ]
+        end
+
+        it 'should return the tweets as json' do
+          get :index
+          response.body.should == { tweets: [] }.to_json
         end
       end
     end

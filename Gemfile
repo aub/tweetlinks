@@ -21,7 +21,6 @@ gem 'yajl-ruby'
 group :assets do
   gem 'jquery-rails'
   gem 'less-rails'
-  gem 'masonry-rails'
   gem 'rails-backbone'
   gem 'therubyracer', :platforms => :ruby
   gem 'twitter-bootstrap-rails'

@@ -16,9 +16,9 @@
 √ Upload phantomJS images to cloudinary.
 √ Manage the size of the images, so they're not so huge
 √ Store the list of images in the user's account, along with data about where it came from and the tweet content
+√ Store the cloudinary data in the tweets
+√ Create an API to serve up images to the client
 
-* Store the cloudinary data in the tweets
-* Create an API to serve up images to the client
 * Back on the client, create a masonry display that shows all of the images
 * Add data about the source of the link to the display
 * Make interactions where clicking will take you to the tweeter, tweet, site, etc.

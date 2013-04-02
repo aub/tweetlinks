@@ -12,6 +12,8 @@ class Tweet < ActiveRecord::Base
 
   after_create :queue_up_image_capture
 
+  scope :with_cloudinary_id, where('cloudinary_id IS NOT NULL')
+
   def to_builder
     Jbuilder.new do |tweet|
       tweet.twitter_user twitter_user.to_builder
