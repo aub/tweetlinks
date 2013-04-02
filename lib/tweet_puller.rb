@@ -7,26 +7,39 @@ class TweetPuller
   end
 
   def each_new_tweet(&block)
-    min_id_pulled = nil
-    max_id_pulled = @user.last_tweet_id
-    tweets_pulled = 0
-    while true
-      data = tweets(min_id_pulled)
-      if data.present?
-        data.each do |tweet|
-          block.call(tweet)
-          min_id_pulled = [min_id_pulled, tweet.id - 1].compact.min
-          max_id_pulled = [max_id_pulled, tweet.id].compact.max
-        end
-        if (tweets_pulled += data.count) >= MAX_TWEETS
+    retry_count = 3
+    begin
+      min_id_pulled = nil
+      max_id_pulled = @user.last_tweet_id
+      tweets_pulled = 0
+      while true
+        data = tweets(min_id_pulled)
+        if data.present?
+          data.each do |tweet|
+            block.call(tweet)
+            min_id_pulled = [min_id_pulled, tweet.id - 1].compact.min
+            max_id_pulled = [max_id_pulled, tweet.id].compact.max
+          end
+          if (tweets_pulled += data.count) >= MAX_TWEETS
+            break
+          end
+        else
           break
         end
-      else
-        break
       end
+    rescue Twitter::Error::TooManyRequests => e
+      print ' rate limited!! '
+      nil # try again next time
+    rescue Twitter::Error::ClientError => e
+      if (retry_count -= 1) >= 0
+        print ' retry! '
+        retry
+      else
+        raise
+      end
+    ensure
+      @user.update_attribute(:last_tweet_id, max_id_pulled)
     end
-  ensure
-    @user.update_attribute(:last_tweet_id, max_id_pulled)
   end
 
   private

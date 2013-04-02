@@ -5,7 +5,8 @@ describe SessionsController do
     Hashie::Mash.new({
       uid: '123',
       info: {
-        name: 'Aubrey Holland'
+        name: 'Aubrey Holland',
+        nickname: 'riotpolice'
       },
       credentials: {
         token: 'abc',

@@ -8,13 +8,15 @@ class TweetProcessor
     if tweet.urls.present?
       url = tweet.urls.first
       twitter_user = TwitterUser.find_or_create_for_tweet(tweet)
-      Tweet.create! do |t|
-        t.user_id = @user.id
-        t.twitter_id = tweet.id
-        t.tweet_content = tweet.text
-        t.tweeted_at = tweet.created_at
-        t.url = url.expanded_url || url.url
-        t.twitter_user = twitter_user
+      unless Tweet.where(:twitter_id => tweet.id).any?
+        Tweet.create! do |t|
+          t.user_id = @user.id
+          t.twitter_id = tweet.id
+          t.tweet_content = tweet.text
+          t.tweeted_at = tweet.created_at
+          t.url = url.expanded_url || url.url
+          t.twitter_user = twitter_user
+        end
       end
     end
   end

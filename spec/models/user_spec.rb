@@ -6,7 +6,8 @@ describe User do
       Hashie::Mash.new({
         uid: '123',
         info: {
-          name: 'Aubrey Holland'
+          name: 'Aubrey Holland',
+          nickname: 'riotpolice'
         },
         credentials: {
           token: 'blahblahblah',
@@ -27,6 +28,10 @@ describe User do
 
       it 'should set the name' do
         user.name.should == 'Aubrey Holland' 
+      end
+
+      it 'should set the screen_name' do
+        user.screen_name.should == 'riotpolice'
       end
 
       it 'should set the access_token' do
@@ -63,7 +68,10 @@ describe User do
 
     it 'should have a json representation' do
       doc = user.to_builder.target!
-      MultiJson.decode(doc).should == { 'name' => user.name }
+      MultiJson.decode(doc).should == {
+        'name' => user.name,
+        'screen_name' => user.screen_name
+      }
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401171233) do
+ActiveRecord::Schema.define(:version => 20130402004835) do
 
   create_table "tweets", :force => true do |t|
     t.integer  "user_id"
@@ -39,13 +39,14 @@ ActiveRecord::Schema.define(:version => 20130401171233) do
   create_table "users", :force => true do |t|
     t.string   "auth_token"
     t.string   "auth_secret"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.string   "twitter_uid"
     t.string   "name"
     t.string   "access_token"
     t.string   "access_secret"
-    t.integer  "last_tweet_id"
+    t.integer  "last_tweet_id", :limit => 8
+    t.string   "screen_name"
   end
 
 end

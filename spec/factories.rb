@@ -12,5 +12,8 @@ FactoryGirl.define do
   factory :user do
     sequence(:twitter_uid) { |n| "#{n}23456" }
     name { Faker::Name.name }
+    screen_name { Faker::Name.name.underscore }
+    sequence(:access_token) { |n| n.to_s }
+    sequence(:access_secret) { |n| n.to_s }
   end
 end

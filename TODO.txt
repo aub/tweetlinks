@@ -6,9 +6,11 @@
 √ Store access token and secret with the users
 √ Send the current user to the client
 √ Pull down tweets
+√ Find links in the tweets
+√ Create a tweet for newly discovered links
+√ Add a rake task that can update tweets for each user
+√ Handle errors in the tweet puller
 
-* Find links in the tweets
-* Create a tweet for newly discovered links
 * Write a PhantomJS script that will take a URL and create an image from it
 * Write a function that given a link will execute the PhantomJS script
 * Upload phantomJS images to cloudinary.
