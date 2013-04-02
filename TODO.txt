@@ -14,9 +14,9 @@
 √ Move to sidekiq
 √ Write a worker that given a link will execute the PhantomJS script
 √ Upload phantomJS images to cloudinary.
+√ Manage the size of the images, so they're not so huge
 
 * Store the cloudinary data in the tweets
-* Manage the size of the images, so they're not so huge
 * Store the list of images in the user's account, along with data about where it came from and the tweet content
 * Back on the client, create a masonry display that shows all of the images
 * Add data about the source of the link to the display
