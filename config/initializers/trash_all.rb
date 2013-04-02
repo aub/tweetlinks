@@ -1,8 +1,8 @@
 def trash_all!
 
   if Rails.env.production?
-    puts "ARE YOU JOKING?"
-    return
+    # puts "ARE YOU JOKING?"
+    # return
   end
 
   ActiveRecord::Base.connection.tables.each do |t|
