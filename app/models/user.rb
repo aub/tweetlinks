@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   validates :twitter_uid, uniqueness: true
 
+  has_many :tweets
+
   def to_builder
     Jbuilder.new do |user|
       user.(self, :name)

@@ -75,7 +75,6 @@ describe TweetPuller do
         },
         "text" => "just another test",
         "id" => current_id,
-        "retweeted" => false,
         "user" => {
           "screen_name" => "user-#{user_id += 1}",
           "name" => Faker::Name.name,
