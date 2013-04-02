@@ -16,7 +16,6 @@ gem 'sidekiq-failures'
 gem 'sinatra'
 gem 'slim'
 gem 'twitter'
-gem 'uuidtools'
 gem 'yajl-ruby'
 
 group :assets do

@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 
   def to_builder
     Jbuilder.new do |user|
-      user.(self, :name, :screen_name)
+      user.name name
+      user.screen_name screen_name
     end
   end
 

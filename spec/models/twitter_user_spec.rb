@@ -26,6 +26,19 @@ describe TwitterUser do
     user.should == tu
   end
 
+  describe '#to_builder' do
+
+    let(:twitter_user) { FactoryGirl.create(:twitter_user) }
+
+    it 'should produce a json document' do
+      doc = twitter_user.to_builder.target!
+      MultiJson.decode(doc).should == {
+        'name' => twitter_user.name,
+        'screen_name' => twitter_user.screen_name
+      }
+    end
+  end
+
   private
 
   def create_tweet

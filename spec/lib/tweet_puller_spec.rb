@@ -70,8 +70,9 @@ describe TweetPuller do
         "created_at" => "Tue Aug 28 21:16:23 +0000 2012",
         "id_str" => current_id.to_s,
         "entities" => {
-          "urls" => [
-          ]
+          "urls" => [{
+            'url' => 'http://ack.com'
+          }]
         },
         "text" => "just another test",
         "id" => current_id,

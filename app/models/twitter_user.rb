@@ -7,6 +7,13 @@ class TwitterUser < ActiveRecord::Base
   validates :profile_image_url, presence: true
   validates :twitter_id, presence: true, uniqueness: true
 
+  def to_builder
+    Jbuilder.new do |user|
+      user.name name
+      user.screen_name screen_name
+    end
+  end
+
   def self.find_or_create_for_tweet(tweet)
     user = find_by_twitter_id(tweet.user.id)
     user ||= create! do |user|

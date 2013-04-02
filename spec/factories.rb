@@ -2,6 +2,15 @@ require 'factory_girl'
 
 FactoryGirl.define do
 
+  factory :tweet do
+    user
+    twitter_user
+    sequence(:twitter_id) { |n| n }
+    tweet_content { Faker::Lorem.words(10).join(' ') }
+    tweeted_at { Time.now }
+    url { Faker::Internet.url }
+  end
+
   factory :twitter_user do
     screen_name { Faker::Name.name.underscore }
     name { Faker::Name.name }

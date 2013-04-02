@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: tweetlinks_development
-  pool: 5
+  pool: 30
 
 test:
   adapter: postgresql

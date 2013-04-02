@@ -12,6 +12,16 @@ class Tweet < ActiveRecord::Base
 
   after_create :queue_up_image_capture
 
+  def to_builder
+    Jbuilder.new do |tweet|
+      tweet.twitter_user twitter_user.to_builder
+      tweet.twitter_id twitter_id
+      tweet.tweeted_at tweeted_at
+      tweet.url url
+      tweet.tweet_content tweet_content
+    end
+  end
+
   private
 
   def queue_up_image_capture

@@ -1,6 +1,6 @@
 class TweetPuller
 
-  MAX_TWEETS = 800
+  MAX_TWEETS = 50
 
   def initialize(user)
     @user = user
@@ -12,19 +12,23 @@ class TweetPuller
       min_id_pulled = nil
       max_id_pulled = @user.last_tweet_id
       tweets_pulled = 0
-      while true
+      running = true
+      while running
         data = tweets(min_id_pulled)
         if data.present?
           data.each do |tweet|
-            block.call(tweet)
+            if tweet.urls.present?
+              block.call(tweet)
+              tweets_pulled += 1
+            end
             min_id_pulled = [min_id_pulled, tweet.id - 1].compact.min
             max_id_pulled = [max_id_pulled, tweet.id].compact.max
           end
-          if (tweets_pulled += data.count) >= MAX_TWEETS
-            break
+          if tweets_pulled >= MAX_TWEETS
+            running = false
           end
         else
-          break
+          running = false
         end
       end
     rescue Twitter::Error::TooManyRequests => e
