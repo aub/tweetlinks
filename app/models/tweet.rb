@@ -9,4 +9,12 @@ class Tweet < ActiveRecord::Base
   validates :tweet_content, presence: true
   validates :tweeted_at, presence: true
   validates :url, presence: true
+
+  after_create :queue_up_image_capture
+
+  private
+
+  def queue_up_image_capture
+    CaptureImageWorker.perform_async(self.id)
+  end
 end

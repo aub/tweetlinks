@@ -1,4 +1,9 @@
+require 'sidekiq/web'
+
 Tweetlinks::Application.routes.draw do
+
+  # TODO: make it so not everybody can see this
+  mount Sidekiq::Web => '/sidekiq'
 
   match '/auth/twitter/callback', to: 'sessions#create'
 

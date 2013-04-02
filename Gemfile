@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'cloudinary'
 gem 'haml'
 gem 'i18n-js'
 gem 'jbuilder'
@@ -10,7 +11,12 @@ gem 'pg'
 gem 'puma'
 gem 'quiet_assets'
 gem 'rails', '3.2.13'
+gem 'sidekiq'
+gem 'sidekiq-failures'
+gem 'sinatra'
+gem 'slim'
 gem 'twitter'
+gem 'uuidtools'
 gem 'yajl-ruby'
 
 group :assets do
