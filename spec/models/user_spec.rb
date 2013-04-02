@@ -70,14 +70,14 @@ describe User do
     end
   end
 
-  describe 'to_builder' do
+  describe 'data_view' do
     let(:user) { FactoryGirl.create(:user) }
 
     it 'should have a json representation' do
-      doc = user.to_builder.target!
-      MultiJson.decode(doc).should == {
-        'name' => user.name,
-        'screen_name' => user.screen_name
+      doc = user.with_data_view(:full)
+      doc.should == {
+        name: user.name,
+        screen_name: user.screen_name
       }
     end
   end

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  include DataViews
+
   validates :twitter_uid, uniqueness: true
   validates :screen_name, presence: true
   validates :access_token, presence: true
@@ -9,11 +11,9 @@ class User < ActiveRecord::Base
 
   after_create :schedule_tweet_worker
 
-  def to_builder
-    Jbuilder.new do |user|
-      user.name name
-      user.screen_name screen_name
-    end
+  data_view :full do
+    property :name
+    property :screen_name
   end
 
   def self.find_or_create_from_auth_hash(hash)

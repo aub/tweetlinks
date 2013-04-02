@@ -37,7 +37,8 @@ describe Api::V1::TweetsController do
 
         it 'should return the tweets as json' do
           get :index
-          response.body.should == { tweets: tweets }.to_json
+          data = tweets.map { |t| t.with_data_view(:full) }
+          MultiJson.decode(response.body, :symbolize_keys => true)[:tweets].map { |i| i[:twitter_id] }.should == tweets.map(&:twitter_id)
         end
       end
 

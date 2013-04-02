@@ -1,5 +1,7 @@
 class TwitterUser < ActiveRecord::Base
 
+  include DataViews
+
   has_many :tweets
 
   validates :screen_name, presence: true, uniqueness: true
@@ -7,11 +9,8 @@ class TwitterUser < ActiveRecord::Base
   validates :profile_image_url, presence: true
   validates :twitter_id, presence: true, uniqueness: true
 
-  def to_builder
-    Jbuilder.new do |user|
-      user.name name
-      user.screen_name screen_name
-    end
+  data_view :full do
+    property :name, :screen_name
   end
 
   def self.find_or_create_for_tweet(tweet)

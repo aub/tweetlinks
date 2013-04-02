@@ -3,7 +3,9 @@ class Api::V1::TweetsController < ApplicationController
   before_filter :require_login
 
   def index
-    tweets = current_user.tweets.with_cloudinary_id
+    tweets = current_user.tweets.with_cloudinary_id.map do |t|
+      t.with_data_view(:full)
+    end
     render json: { tweets: tweets }, status: 200
   end
 

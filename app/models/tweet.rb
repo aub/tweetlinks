@@ -1,5 +1,7 @@
 class Tweet < ActiveRecord::Base
 
+  include DataViews
+
   belongs_to :user
   belongs_to :twitter_user
 
@@ -14,14 +16,13 @@ class Tweet < ActiveRecord::Base
 
   scope :with_cloudinary_id, where('cloudinary_id IS NOT NULL')
 
-  def to_builder
-    Jbuilder.new do |tweet|
-      tweet.twitter_user twitter_user.to_builder
-      tweet.twitter_id twitter_id
-      tweet.tweeted_at tweeted_at
-      tweet.url url
-      tweet.tweet_content tweet_content
-    end
+  data_view :full do
+    property :cloudinary_id
+    property :twitter_id
+    property :tweeted_at
+    property :url
+    property :tweet_content
+    property(:twitter_user) { twitter_user.with_data_view(:full) }
   end
 
   private
