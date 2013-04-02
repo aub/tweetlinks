@@ -1,6 +1,7 @@
 class CaptureImageWorker
 
   include Sidekiq::Worker
+  sidekiq_options :retry => false
 
   def perform(tweet_id)
     tweet = Tweet.find(tweet_id)
@@ -15,6 +16,8 @@ class CaptureImageWorker
     output = `phantomjs #{script} #{tweet.url} #{filename}`
 
     if File.exists?(filename)
+      # let them be big, but not ridiculous
+      `convert -gravity North -crop "x2000>+0+0" #{filename} #{filename}`
       file = File.open(filename, 'r')
       data = Cloudinary::Uploader.upload(file, format: 'png')
       tweet.update_attribute(:cloudinary_id, data['public_id'])
