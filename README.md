@@ -27,6 +27,8 @@ Notes/Limitations/Regrets/Apologies
 + I've tested this on Google Chrome. For all I know it only works in Chrome. I'm fine with that.
 + I really tried to embrace TDD on the client with Jasmine for this, but I'm afraid I couldn't get it working very well. There is a remnant of the tests left to shame me into making it work properly at some point. The server-side tests I feel good about.
 + I haven't really attempted to make this scalable. Like, not at all. Though I think it's interesting enough to play around with that in the future. For example, right now it will keep all of your tweets into eternity, and it will also pull them all down via the API. Demoware.
++ You can't log out. I feel mildly bad about this, but it's going to be ok.
++ You can check out the status of workers at /sidekiq.
 
 Setup for running locally
 -------------------------
