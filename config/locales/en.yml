@@ -1,4 +1,5 @@
 en:
+  chill_out: "Looks like you don't have any tweets loaded yet. This is probably because we're still processing your data. My recommendation: crack open a cold one and then hit reload in a minute or two."
   sign_up_with_twitter: "Sign up with Twitter"
   site_title: "TweetLinks"
   tagline: "Some of the people you follow on Twitter link to stuff. Some of that stuff is awesome. You're probably missing a bunch of those links, and I'm pretty sure you've never seen them in an awesome grid. If that's the case, TweetLinks is here to help."

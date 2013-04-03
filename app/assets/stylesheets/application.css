@@ -92,3 +92,11 @@ body {
 #home-wrapper .hero-unit p {
   margin-bottom: 20px;
 }
+
+.no-tweets {
+  color: #999;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 150px;
+  line-height: 30px;
+}
