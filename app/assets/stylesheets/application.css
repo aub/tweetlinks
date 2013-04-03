@@ -40,6 +40,19 @@ body {
   border-radius: 10px;
 }
 
+.overoverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+  background-color: rgba(0, 0, 0, 0.01);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
 .overlay .inner {
   padding: 15px;
 }
@@ -53,4 +66,13 @@ body {
   color: white;
   font-size: 18px;
   line-height: 26px;
+}
+
+.modal.tweet-modal {
+  width: 630px;
+  margin-left: -305px;
+}
+
+.tweet-modal .modal-body {
+  max-height: 600px;
 }
