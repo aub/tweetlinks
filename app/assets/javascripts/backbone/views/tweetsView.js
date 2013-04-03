@@ -25,6 +25,10 @@ TweetLinks.Views.TweetsView = Backbone.View.extend({
       $container.append($('<p class="no-tweets">' + I18n.t('chill_out') + '</p>'));
     }
 
+    // $(window).scroll(function() {
+    //   console.log("BOOMIN");
+    // });
+
     this.setElement($elem);
     return this;
   }

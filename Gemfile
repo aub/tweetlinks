@@ -15,6 +15,7 @@ gem 'sidekiq-failures'
 gem 'sinatra'
 gem 'slim'
 gem 'twitter'
+gem 'will_paginate'
 gem 'yajl-ruby'
 
 group :assets do

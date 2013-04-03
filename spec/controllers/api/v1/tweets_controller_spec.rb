@@ -30,7 +30,7 @@ describe Api::V1::TweetsController do
       
         let!(:tweets) do
           [
-            FactoryGirl.create(:tweet, user: user, tweeted_at: 10.hours.ago),
+            FactoryGirl.create(:tweet, user: user, tweeted_at: 5.hours.ago),
             FactoryGirl.create(:tweet, user: user, tweeted_at: 1.minute.ago),
             FactoryGirl.create(:tweet, user: user, tweeted_at: 10.minutes.ago)
           ]
@@ -46,6 +46,13 @@ describe Api::V1::TweetsController do
           get :index
           data = tweets.map { |t| t.with_data_view(:full) }
           MultiJson.decode(response.body, :symbolize_keys => true)[:tweets].map { |i| i[:twitter_id] }.should == tweets.sort_by(&:tweeted_at).reverse.map(&:twitter_id)
+        end
+
+        it 'should paginate the tweets' do
+          get :index, per_page: 1, page: 1
+          data = tweets.map { |t| t.with_data_view(:full) }
+          MultiJson.decode(response.body, :symbolize_keys => true)[:tweets].map { |i| i[:twitter_id] }.should =~ [tweets[1].twitter_id]
+
         end
       end
 

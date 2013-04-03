@@ -20,4 +20,6 @@
 //= require backbone/tweetlinks
 //= require i18n
 //= require i18n/translations
+//= require vendor/backbone.paginator
+//= require vendor/jquery.masonry.min
 //= require_tree .
