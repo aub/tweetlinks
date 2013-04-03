@@ -5,7 +5,7 @@ Tweetlinks::Application.routes.draw do
   # TODO: make it so not everybody can see this
   mount Sidekiq::Web => '/sidekiq'
 
-  match '/auth/twitter/callback', to: 'sessions#create'
+  match '/auth/twitter/callback', to: 'sessions#create', via: :get
 
   mount JasmineRails::Engine => '/specs' unless Rails.env.production?
 

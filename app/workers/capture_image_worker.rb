@@ -20,7 +20,7 @@ class CaptureImageWorker
 
     if File.exists?(filename)
       # let them be big, but not ridiculous
-      `convert -gravity North -crop "x2000>+0+0" #{filename} #{filename}`
+      `convert -gravity North -crop "x3000>+0+0" #{filename} #{filename}`
       file = File.open(filename, 'r')
       data = Cloudinary::Uploader.upload(file, format: 'png')
       tweet.update_attribute(:cloudinary_id, data['public_id'])
