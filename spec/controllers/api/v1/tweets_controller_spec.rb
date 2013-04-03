@@ -30,15 +30,22 @@ describe Api::V1::TweetsController do
       
         let!(:tweets) do
           [
-            FactoryGirl.create(:tweet, user: user),
-            FactoryGirl.create(:tweet, user: user)
+            FactoryGirl.create(:tweet, user: user, tweeted_at: 1.week.ago),
+            FactoryGirl.create(:tweet, user: user, tweeted_at: 1.hour.ago),
+            FactoryGirl.create(:tweet, user: user, tweeted_at: 1.day.ago)
           ]
         end
 
         it 'should return the tweets as json' do
           get :index
           data = tweets.map { |t| t.with_data_view(:full) }
-          MultiJson.decode(response.body, :symbolize_keys => true)[:tweets].map { |i| i[:twitter_id] }.should == tweets.map(&:twitter_id)
+          MultiJson.decode(response.body, :symbolize_keys => true)[:tweets].map { |i| i[:twitter_id] }.should =~ tweets.map(&:twitter_id)
+        end
+
+        it 'should order the tweets by tweeted_at' do
+          get :index
+          data = tweets.map { |t| t.with_data_view(:full) }
+          MultiJson.decode(response.body, :symbolize_keys => true)[:tweets].map { |i| i[:twitter_id] }.should == tweets.sort_by(&:tweeted_at).reverse.map(&:twitter_id)
         end
       end
 

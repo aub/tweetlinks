@@ -1,7 +1,7 @@
 class UpdateTweetsWorker
 
   include Sidekiq::Worker
-  sidekiq_options :retry => false
+  sidekiq_options retry: 5, failures: :exhausted
 
   def perform(user_id)
     user = User.find(user_id)

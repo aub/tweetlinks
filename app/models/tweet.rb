@@ -16,6 +16,8 @@ class Tweet < ActiveRecord::Base
 
   scope :with_cloudinary_id, where('cloudinary_id IS NOT NULL')
 
+  scope :recent_first, order('tweeted_at DESC')
+
   data_view :full do
     property :cloudinary_id
     property :twitter_id
