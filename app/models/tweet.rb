@@ -18,6 +18,10 @@ class Tweet < ActiveRecord::Base
 
   scope :recent_first, order('tweeted_at DESC')
 
+  scope :most_recent, lambda { |span|
+    where(['tweeted_at > ?', Time.now - span])
+  }
+
   data_view :full do
     property :cloudinary_id
     property :twitter_id

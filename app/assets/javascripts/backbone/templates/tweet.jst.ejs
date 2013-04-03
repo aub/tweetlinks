@@ -1,16 +1,17 @@
 <div class="item">
-  <img src="https://cloudinary-a.akamaihd.net/tweetlinks/image/upload/w_300,r_10/<%= tweet.get('cloudinary_id') %>.png"/>
-  <div class="overlay">
-    <div class="inner">
-      <h4>
-        <a href="http://twitter.com/<%= tweet.get('twitter_user').screen_name %>">
-          @<%= tweet.get('twitter_user').screen_name %>
-        </a>
-      </h4>
-      <p>
-        <%= tweet.escape('tweet_content') %>
-      </p>
+  <div class="wrapper">
+    <img src="https://cloudinary-a.akamaihd.net/tweetlinks/image/upload/w_300,r_10/<%= tweet.get('cloudinary_id') %>.png"/>
+    <div class="overlay">
+      <div class="inner">
+        <h4>
+          <a href="http://twitter.com/<%= tweet.get('twitter_user').screen_name %>">
+            @<%= tweet.get('twitter_user').screen_name %>
+          </a>
+        </h4>
+        <p>
+          <%= tweet.escape('tweet_content') %>
+        </p>
+      </div>
     </div>
   </div>
-  <div class="overoverlay"></div>
 </div>

@@ -30,9 +30,9 @@ describe Api::V1::TweetsController do
       
         let!(:tweets) do
           [
-            FactoryGirl.create(:tweet, user: user, tweeted_at: 1.week.ago),
-            FactoryGirl.create(:tweet, user: user, tweeted_at: 1.hour.ago),
-            FactoryGirl.create(:tweet, user: user, tweeted_at: 1.day.ago)
+            FactoryGirl.create(:tweet, user: user, tweeted_at: 10.hours.ago),
+            FactoryGirl.create(:tweet, user: user, tweeted_at: 1.minute.ago),
+            FactoryGirl.create(:tweet, user: user, tweeted_at: 10.minutes.ago)
           ]
         end
 

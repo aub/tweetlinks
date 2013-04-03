@@ -1,9 +1,9 @@
 TweetLinks.Views.TweetView = Backbone.View.extend({
 
   events: {
-    'mouseover .overoverlay': 'showOverlay',
-    'mouseout .overoverlay': 'hideOverlay',
-    'click .overoverlay': 'showModal'
+    'mouseenter .wrapper': 'showOverlay',
+    'mouseleave .wrapper': 'hideOverlay',
+    'click .overlay': 'showModal'
   },
 
   render: function() {
@@ -25,7 +25,9 @@ TweetLinks.Views.TweetView = Backbone.View.extend({
 
   showModal: function(event) {
     event.preventDefault();
-    $modal = $(JST['backbone/templates/tweetModal']({ tweet: this.model }));
-    $modal.modal();
+    $modal = $(JST['backbone/templates/tweetModal']({
+      tweet: this.model
+    }));
+    $modal.modal({});
   }
 });
