@@ -76,3 +76,19 @@ body {
 .tweet-modal .modal-body {
   max-height: 600px;
 }
+
+#home-wrapper {
+  text-align: center;
+}
+
+#home-wrapper .hero-unit {
+  text-align: left;
+}
+
+#home-wrapper .hero-unit h1 {
+  margin-bottom: 20px;
+}
+
+#home-wrapper .hero-unit p {
+  margin-bottom: 20px;
+}
